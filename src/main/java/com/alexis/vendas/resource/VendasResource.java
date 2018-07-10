@@ -23,8 +23,15 @@ public class VendasResource {
     public List<Venda> listar() {
         return vendas.findAll();
     }
+
     @PostMapping
     public Venda adicionar(@RequestBody @Valid Venda venda){
         return vendaService.adicionar(venda);
+    }
+
+    @DeleteMapping(value = "/delete/{codigo}")
+    public void deletar(@PathVariable("codigo") long codigo){
+       Venda v = vendas.findById(codigo).get();
+       vendaService.deletar(v);
     }
 }

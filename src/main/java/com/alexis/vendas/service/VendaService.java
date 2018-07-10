@@ -29,4 +29,8 @@ public class VendaService {
 
         return vendas.save(venda);
     }
+
+    public void deletar(Venda venda){
+        vendas.delete(venda);
+    }
 }
